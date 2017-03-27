@@ -1,0 +1,22 @@
+
+2017-03-27 14:00:55.200165	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:02:48.706828	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:05:13.136951	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:09:12.787509	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:10:03.132784	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:10:14.495802	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:10:23.565402	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:10:38.006262	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:14:11.545889	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:14:34.379355	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c
+
+2017-03-27 14:15:29.803529	wget -E -K -l 3 -nv -a /Users/stevenfriedman/EPADownloader/test/google1_meta/google.log -H -e robots=off google.com -P /Users/stevenfriedman/EPADownloader/test/google1 -r -nH -p -k --follow-ftp -c

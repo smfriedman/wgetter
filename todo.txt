@@ -1,0 +1,6 @@
+add more wget args - see wgetSpecs.py
+handle individual sites
+improve README
+improve _meta/ handling - logs
+shell utilities - e.g. clean test
+concurrent downloads
