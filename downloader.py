@@ -2,49 +2,15 @@ import csv
 from tempfile import NamedTemporaryFile
 import shutil
 import datetime
-#import signal
-import sys, getopt
+import sys, os
 
-from cmdBuilder import wget, hashdeep
-
-def timestamp():
-	return str(datetime.datetime.now())
-
-#export to its own file?
-def getArgs():
-	helpMessage = 'downloader.py -i <input csv>'
-	clargs = {}
-
-	try:
-		opts, args = getopt.getopt(sys.argv[1:],"hi:",[])
-	except getopt.GetoptError:
-		print helpMessage
-		sys.exit(1)
-
-	for opt, arg in opts:
-		if opt == '-h':
-			print helpMessage
-			sys.exit()
-		elif opt == '-i':
-			clargs['inputFile'] = arg
-
-	if 'inputFile' not in clargs:
-		print helpMessage
-		sys.exit(1)
-
-	return clargs
-
-#http://stackoverflow.com/questions/16020858/inline-csv-file-editing-with-python
-#filename = 'input/test1.csv' #get from cmd line
-args = getArgs()
-filename = args['inputFile']
-tempfile = NamedTemporaryFile(delete=False)
+from cmdBuilder import wget, hashdeep, timestamp, check_dirs
+from argReader import getArgs
 
 currentRow = {}
 finishedUrls = []
 
-#scope: http://stackoverflow.com/questions/291978/short-description-of-python-scoping-rules
-def main(reader, writer):
+def main(reader, writer, STDERR, COMMANDS):
 	global currentRow
 	global finishedUrls
 
@@ -56,29 +22,37 @@ def main(reader, writer):
 				print "already created hashes for %s" % (currentRow[' url'])
 			else:
 				currentRow['startHash'] = timestamp()
-				hashdeep(currentRow)
+				COMMANDS.write("\nStarting hashes of " + currentRow[' url'] + " at " + timestamp() + "\n")
+				hashdeep(currentRow, STDERR, COMMANDS)
 				currentRow['finishHash'] = timestamp()
+				COMMANDS.write("\nFinished hashes of " + currentRow[' url'] + " at " + timestamp() + "\n")
 		else:
 			if currentRow['start'] == "":
 				currentRow['start'] = timestamp()
-			wget(row)
+				COMMANDS.write("\nStarting download of " + currentRow[' url'] + " at " + timestamp() + "\n")
+			else:
+				COMMANDS.write("\nResuming download of " + currentRow[' url'] + " at " + timestamp() + "\n")
+			wget(row, STDERR, COMMANDS)
 			currentRow['finish'] = timestamp()
 			currentRow['startHash'] = timestamp()
-			hashdeep(row)
+			COMMANDS.write("\nStarting hashes of " + currentRow[' url'] + " at " + timestamp() + "\n")
+			hashdeep(row, STDERR, COMMANDS)
 			currentRow['finishHash'] = timestamp()
+			COMMANDS.write("\nFinished hashes of " + currentRow[' url'] + " at " + timestamp() + "\n")
 
 		finishedUrls.append(currentRow[' url'])
 		writer.writerow(row)	
 
 	shutil.move(tempfile.name, filename)
 
-def handle(reader, writer):
+def handle(reader, writer, STDERR, COMMANDS):
+	COMMANDS.write("\nINTERRUPTED AT " + timestamp() + "\n")
+
 	global currentRow
 	global finishedUrls
 
 	writer.writerow(currentRow)
 	for row in reader:
-		print row
 		if row[' url'] not in finishedUrls and row[' url'] is not currentRow[' url']:
 			writer.writerow(row)
 	
@@ -87,6 +61,16 @@ def handle(reader, writer):
 #this (http://stackoverflow.com/questions/26378988/how-to-correctly-handle-sigint-to-close-files-connections)
 #or signal.signal ? (http://stackoverflow.com/questions/1112343/how-do-i-capture-sigint-in-python)
 if __name__ == "__main__":	
+
+	args = getArgs(sys.argv[1:])
+	filename = args['inputFile']
+	noext = os.path.basename(os.path.splitext(filename)[0])
+	tempfile = NamedTemporaryFile(delete=False)
+
+	check_dirs("output/" + noext)
+	STDERR = open("output/" + noext + "/error.log", "a")
+	COMMANDS = open("output/" + noext + "/commands.log", "a")
+
 	with open(filename, 'rbU') as csvFile, tempfile:
 
 		reader = csv.DictReader(csvFile)
@@ -94,26 +78,6 @@ if __name__ == "__main__":
 		writer.writeheader()
 
 		try:
-			main(reader, writer)
+			main(reader, writer, STDERR, COMMANDS)
 		except KeyboardInterrupt:
-			handle(reader, writer)
-
-
-
-
-
-
-
-
-
-# with open('test.csv', 'rU') as csvfile:
-# 	reader = csv.DictReader(csvfile)
-# 	for row in reader:
-# 		if(row["finish"] != ""):
-# 			print "already downloaded %s" % (row[' url'])
-# 			if(row["finishHash"] != ""):
-# 				print "already created hashes for %s" % (row[' url'])
-# 			else:
-# 				hashdeep(row)
-# 		else:
-# 			wget(row)
+			handle(reader, writer, STDERR, COMMANDS)

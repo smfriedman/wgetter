@@ -1,0 +1,4 @@
+
+2017-03-27 19:15:40.788152	wget google.com -l 3 -a /Users/stevenfriedman/EPADownloader/test_output_files/google1_meta/google.log -e robots=off -p -r -nH -k -E --follow-ftp -nv -H -K -P /Users/stevenfriedman/EPADownloader/test_output_files/google1 -c
+
+2017-03-27 19:16:26.242883	wget google.com -l 3 -a /Users/stevenfriedman/EPADownloader/test_output_files/google1_meta/google.log -e robots=off -p -r -nH -k -E --follow-ftp -nv -H -K -P /Users/stevenfriedman/EPADownloader/test_output_files/google1 -c

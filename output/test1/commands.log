@@ -1,0 +1,12 @@
+
+Starting download of google.com at 2017-03-27 19:15:40.787887
+
+2017-03-27 19:15:40.788139	wget google.com -l 3 -a /Users/stevenfriedman/EPADownloader/test_output_files/google1_meta/google.log -e robots=off -p -r -nH -k -E --follow-ftp -nv -H -K -P /Users/stevenfriedman/EPADownloader/test_output_files/google1 -c
+
+INTERRUPTED AT2017-03-27 19:15:45.248741
+
+Resuming download of google.com at 2017-03-27 19:16:26.242765
+
+2017-03-27 19:16:26.242874	wget google.com -l 3 -a /Users/stevenfriedman/EPADownloader/test_output_files/google1_meta/google.log -e robots=off -p -r -nH -k -E --follow-ftp -nv -H -K -P /Users/stevenfriedman/EPADownloader/test_output_files/google1 -c
+
+INTERRUPTED AT 2017-03-27 19:16:30.279515

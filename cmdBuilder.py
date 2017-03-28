@@ -14,17 +14,11 @@ def check_dirs(path):
 	if not os.path.exists(path):
 		os.makedirs(path)#, exist_ok=True)
 
-STDOUT = open("output/output.log", "a")
-STDERR = open("output/error.log", "a")
-COMMANDS = open("output/commands.log", "a")
-
-def execute(cmd):
+def execute(cmd, STDERR, COMMANDS):
 	COMMANDS.write("\n" + timestamp() + "\t" + cmd + "\n")
-	#STDOUT.write("\n" + timestamp() + "\t" + cmd + "\n")
 	STDERR.write("\n" + timestamp() + "\t" + cmd + "\n")
 	subprocess.call(cmd, shell=True, stderr=STDERR) #stdin=subprocess.PIPE, stdout=STDOUT,
-	#subprocess.check_call(cmd, shell=True, stderr=STDERR) #stdin=subprocess.PIPE, stdout=STDOUT,
-	#subprocess.Popen(cmd, shell=True, stderr=STDERR) #stdin=subprocess.PIPE, stdout=STDOUT,
+	#check_call, Popen
 
 def wgetCmd(row):
 	check_dirs(row[" -P"])
@@ -59,14 +53,14 @@ def singleHashCmd(row, hashFunc):
 def hashCmd(row):
 	return singleHashCmd(row, "md5") + " & " + singleHashCmd(row, "sha256")
 
-def wget(row):
+def wget(row, STDERR, COMMANDS):
 	print "starting download of %s" % (row[' url'])
 	cmd = wgetCmd(row)
-	execute(cmd)
+	execute(cmd, STDERR, COMMANDS)
 	return
 
-def hashdeep(row):
+def hashdeep(row, STDERR, COMMANDS):
 	print "starting hashes of %s" % (row[' url'])
 	cmd = hashCmd(row)
-	execute(cmd)	
+	execute(cmd, STDERR, COMMANDS)	
 	return
