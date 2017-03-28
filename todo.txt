@@ -1,6 +1,9 @@
 handle individual sites
 improve README
 improve _meta/ handling - logs
-shell utilities - e.g. clean test
+shell utilities 
+	clean test_output_files
+	repalce all local prefixes - allow for hosting later
+		http://stackoverflow.com/questions/1583219/awk-sed-how-to-do-a-recursive-find-replace-of-a-string
 concurrent downloads - currently run multiple batches at once
 always: add more wget args - see wgetSpecs.py
