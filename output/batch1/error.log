@@ -1,0 +1,12 @@
+
+2017-03-28 00:49:28.784382	wget https://www.epa.gov/ghgreporting -l inf -a /Volumes/EPA_DATA/batch1/ghgreporting_meta/ghgreporting.log -e robots=off -p -r -k -E --follow-ftp -nv --accept-regex  '(https://www.epa.gov/sites/production/files*|https://www.epa.gov/ghgreporting*)' -K -P /Volumes/EPA_DATA/batch1/ghgreporting -c
+
+2017-03-28 01:03:47.080439	hashdeep -rl -c md5 /Volumes/EPA_DATA/batch1/ghgreporting > /Volumes/EPA_DATA/batch1/ghgreporting_meta/ghgreportingmd5.md5 & hashdeep -rl -c sha256 /Volumes/EPA_DATA/batch1/ghgreporting > /Volumes/EPA_DATA/batch1/ghgreporting_meta/ghgreportingsha256.sha256
+
+2017-03-28 01:04:22.897903	wget https://www.climatehubs.oce.usda.gov -l inf -a /Volumes/EPA_DATA/batch1/climatehubs_oce_meta/climatehubs_oce.log -e robots=off -p -r -k -E --follow-ftp -nv -K -P /Volumes/EPA_DATA/batch1/climatehubs_oce -c
+
+2017-03-28 05:01:53.143510	hashdeep -rl -c md5 /Volumes/EPA_DATA/batch1/climatehubs_oce > /Volumes/EPA_DATA/batch1/climatehubs_oce_meta/climatehubs_ocemd5.md5 & hashdeep -rl -c sha256 /Volumes/EPA_DATA/batch1/climatehubs_oce > /Volumes/EPA_DATA/batch1/climatehubs_oce_meta/climatehubs_ocesha256.sha256
+
+2017-03-28 05:02:08.588037	wget https://www.fs.usda.gov/ccrc -l inf -a /Volumes/EPA_DATA/batch1/fs_ccrc_meta/fs_ccrc.log -e robots=off -p -r -k -E --follow-ftp -nv --accept-regex  'https://www.fs.usda.gov/ccrc*' -K -P /Volumes/EPA_DATA/batch1/fs_ccrc -c
+
+2017-03-28 05:02:10.694571	hashdeep -rl -c md5 /Volumes/EPA_DATA/batch1/fs_ccrc > /Volumes/EPA_DATA/batch1/fs_ccrc_meta/fs_ccrcmd5.md5 & hashdeep -rl -c sha256 /Volumes/EPA_DATA/batch1/fs_ccrc > /Volumes/EPA_DATA/batch1/fs_ccrc_meta/fs_ccrcsha256.sha256

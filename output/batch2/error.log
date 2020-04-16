@@ -1,0 +1,10 @@
+pathconf: Not a directory
+pathconf: Not a directory
+
+2017-03-28 23:28:57.701372	wget https://www.epa.gov/ghgreporting -np -l 3 -a /Volumes/EPA_DATA/batch2/ghgreporting_meta/ghgreporting.log -e robots=off -p -r -k -E --follow-ftp -nv -K -P /Volumes/EPA_DATA/batch2/ghgreporting -c
+
+2017-03-29 00:19:59.623957	hashdeep -rl -c md5 /Volumes/EPA_DATA/batch2/ghgreporting > /Volumes/EPA_DATA/batch2/ghgreporting_meta/ghgreportingmd5.md5 & hashdeep -rl -c sha256 /Volumes/EPA_DATA/batch2/ghgreporting > /Volumes/EPA_DATA/batch2/ghgreporting_meta/ghgreportingsha256.sha256
+
+2017-03-29 00:21:11.189079	wget https://www.fs.usda.gov/ccrc -np -l 3 -a /Volumes/EPA_DATA/batch2/fs_ccrc_meta/fs_ccrc.log -e robots=off -p -r -k -E --follow-ftp -nv -K -P /Volumes/EPA_DATA/batch2/fs_ccrc -c
+
+2017-03-29 02:01:46.311382	hashdeep -rl -c md5 /Volumes/EPA_DATA/batch2/fs_ccrc > /Volumes/EPA_DATA/batch2/fs_ccrc_meta/fs_ccrcmd5.md5 & hashdeep -rl -c sha256 /Volumes/EPA_DATA/batch2/fs_ccrc > /Volumes/EPA_DATA/batch2/fs_ccrc_meta/fs_ccrcsha256.sha256

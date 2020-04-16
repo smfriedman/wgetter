@@ -1,0 +1,12 @@
+
+Starting download of https://toolkit.climate.gov at 2017-04-01 19:04:24.371221
+
+2017-04-01 19:04:26.627271	wget https://toolkit.climate.gov -l inf -a /Volumes/EPA_DATA/batch3/climate_toolkit_meta/climate_toolkit.log -e robots=off -p -r -k -E --follow-ftp -nv -K -P /Volumes/EPA_DATA/batch3/climate_toolkit -c
+
+INTERRUPTED AT 2017-04-01 19:18:43.342567
+
+Resuming download of https://toolkit.climate.gov at 2017-04-01 19:19:56.599797
+
+2017-04-01 19:19:56.599913	wget https://toolkit.climate.gov -l inf -a /Volumes/EPA_DATA/batch3/climate_toolkit_meta/climate_toolkit.log -e robots=off -p -r -k -E --follow-ftp -nv -K -P /Volumes/EPA_DATA/batch3/climate_toolkit -c
+
+INTERRUPTED AT 2017-04-03 00:38:22.179502
